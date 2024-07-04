@@ -24,7 +24,7 @@ const Menu = ({ labelMenu, items }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <span className="text-white">{labelMenu}</span>
+      <span className="px-4 py-2 text-white hover:text-gray-300">{labelMenu}</span>
       {items.length > 0 && (
         <span className="ml-1">
           <ChevronDownIcon className="h-4 w-4 text-white" />
