@@ -1,6 +1,66 @@
 import Navbar from "@/components/Navbar";
 import CardBerita from "@/components/CardBerita";
 import Carousel from "@/components/Carousel";
+import CarouselInfo from "@/components/CarouselInfo";
+import CardCategory from "@/components/CardCategory";
+import Footer from "@/components/Footer";
+
+const cardCategories = [
+  {
+      title: 'Pelayanan',
+      content: [
+          'Gunakan Data Dukcapil Kunci Sukses Pelacakan Aset Negara',
+          'Dorong Efektivitas Pelayanan Publik, 2 OPD Kabupaten Tanah Bumbu Koordinasi dengan Direktur IDKD',
+          'BPK-RI Gandeng Dukcapil Optimalkan Teknologi Face Recognition untuk Kartu Prakerja',
+          'Ditjen Dukcapil Kemendagri Dukung Disdukcapil Provinsi Sulsel Teken PKS Pemanfaatan Data Kependudukan dengan 14 OPD'
+      ]
+  },
+  {
+      title: 'Kesehatan',
+      content: [
+          'Tips Kesehatan untuk Hidup Sehat',
+          'Makanan Bergizi untuk Tubuh Sehat',
+          'Olahraga yang Baik untuk Kesehatan Jantung',
+          'Cara Mengelola Stres dengan Baik'
+      ]
+  },
+  {
+      title: 'Pengetahuan',
+      content: [
+          'Penemuan Baru dalam Teknologi AI',
+          'Sejarah Revolusi Industri',
+          'Cara Kerja Mesin Diesel',
+          'Perkembangan Teknologi Komunikasi'
+      ]
+  },
+  {
+      title: 'Anak',
+      content: [
+          'Cara Mendidik Anak dengan Baik',
+          'Aktivitas Kreatif untuk Anak',
+          'Pentingnya Pendidikan Anak Usia Dini',
+          'Kesehatan Mental Anak'
+      ]
+  },
+  {
+      title: 'Pengobatan',
+      content: [
+          'Pengobatan Tradisional vs Modern',
+          'Manfaat Terapi Air',
+          'Pengobatan Herbal untuk Penyakit Kronis',
+          'Teknologi Terbaru dalam Dunia Medis'
+      ]
+  },
+  {
+      title: 'Publik',
+      content: [
+          'Program Pemerintah untuk Masyarakat',
+          'Kebijakan Publik yang Berhasil',
+          'Pentingnya Partisipasi Masyarakat dalam Pemerintahan',
+          'Cara Mengajukan Bantuan Sosial'
+      ]
+  },
+];
 
 export default function Home() {
   return (
@@ -45,9 +105,52 @@ export default function Home() {
         />
       </div>
       {/* END BERITA */}
-
-
       <Carousel />
+
+        {/* START 3 CarouselInfo */}
+        <div className="mt-8 w-full md:w-3/4 flex-col xl:flex-row flex items-center justify-between mx-auto p-8 border border-red-600">
+          <CarouselInfo
+            title={`Photos`}
+            images={[
+              { url: 'https://via.placeholder.com/400', alt: 'Photo 1' },
+              { url: 'https://via.placeholder.com/400', alt: 'Photo 2' },
+              { url: 'https://via.placeholder.com/400', alt: 'Photo 3' },
+              { url: 'https://via.placeholder.com/400', alt: 'Photo 4' },
+              { url: 'https://via.placeholder.com/400', alt: 'Photo 5' },
+            ]}
+          />
+          <br/>
+          <CarouselInfo
+            title={`Infografis`}
+            images={[
+              { url: 'https://via.placeholder.com/400', alt: 'Infographic 1' },
+              { url: 'https://via.placeholder.com/400', alt: 'Infographic 2' },
+              { url: 'https://via.placeholder.com/400', alt: 'Infographic 3' },
+              { url: 'https://via.placeholder.com/400', alt: 'Infographic 4' },
+              { url: 'https://via.placeholder.com/400', alt: 'Infographic 5' },
+            ]}
+          />
+          <br/>
+          <CarouselInfo
+            title={`Videos`}
+            images={[
+              { url: 'https://via.placeholder.com/400', alt: 'Video 1' },
+              { url: 'https://via.placeholder.com/400', alt: 'Video 2' },
+              { url: 'https://via.placeholder.com/400', alt: 'Video 3' },
+              { url: 'https://via.placeholder.com/400', alt: 'Video 4' },
+              { url: 'https://via.placeholder.com/400', alt: 'Video 5' },
+            ]}
+          />
+        </div>
+        {/* END 3 CarouselInfo */}
+          
+        <div className="mt-10 w-full md:w-3/4 flex flex-wrap gap-4 items-start justify-between mx-auto p-8 border border-red-600">
+            {cardCategories.map((cardCategory, index) => (
+                <CardCategory key={index} title={cardCategory.title} content={cardCategory.content} />
+            ))}
+        </div>
+        
+        <Footer/>
     </main>
   );
 }
